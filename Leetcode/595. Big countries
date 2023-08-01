@@ -1,0 +1,12 @@
+import pandas as pd
+
+def big_countries(world: pd.DataFrame) -> pd.DataFrame:
+    df = pd.DataFrame(world)
+    df = df[['name','population','area']]
+    mask_area = df['area']>=3000000
+    mask_pop = df['population']>=25000000
+    df = df[mask_area | mask_pop]
+    return df
+
+
+    
